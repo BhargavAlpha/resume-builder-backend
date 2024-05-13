@@ -3,6 +3,7 @@ const app = express();
 const cors = require('cors');
 const dbConnect = require('./dbConnect');
 const bodyParser = require('body-parser');
+require('dotenv').config();
 const { latex } = require('./controllers/latex');
 
 app.use(cors()); 
@@ -10,13 +11,13 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 dbConnect();
 
-const port = 3000;
+
 
 app.post('/generate_pdf', latex);
 app.get('/hi', (req, res) => {
     res.send('Hi there!');
 });
 
-app.listen(port, () => {
-    console.log(`Server running on port ${port}`);
+app.listen(process.env.PORT, () => {
+    console.log(`Server running on port ${process.env.PORT}`);
 });
