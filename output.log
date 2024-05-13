@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.5.12)  12 MAY 2024 16:41
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.5.12)  13 MAY 2024 14:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -756,14 +756,20 @@ L3 programming layer <2024-01-04>
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package rerunfilecheck Info: File `output.out' has not changed.
-(rerunfilecheck)             Checksum: C8FE06105C66D1AE43EE434F301D9401;765.
+
+Package rerunfilecheck Warning: File `output.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `output.out':
+(rerunfilecheck)             Before: D41D8CD98F00B204E9800998ECF8427E;0
+(rerunfilecheck)             After:  C8FE06105C66D1AE43EE434F301D9401;765.
  ) 
 Here is how much of TeX's memory you used:
- 23238 strings out of 474486
- 428596 string characters out of 5753570
+ 23230 strings out of 474486
+ 428517 string characters out of 5753570
  1944542 words of memory out of 5000000
- 45132 multiletter control sequences out of 15000+600000
+ 45124 multiletter control sequences out of 15000+600000
  566934 words of font info for 69 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,9n,93p,418b,454s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -777,9 +783,9 @@ pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Progr
 am Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiK
 TeX/fonts/type1/public/amsfonts/cm/cmti12.pfb>
 Output written on C:\Users\bharg\Desktop\100x\roxilir\roxiler-backend\output.pd
-f (1 page, 125616 bytes).
+f (1 page, 123277 bytes).
 PDF statistics:
- 105 PDF objects out of 1000 (max. 8388607)
+ 83 PDF objects out of 1000 (max. 8388607)
  9 named destinations out of 1000 (max. 500000)
- 69 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

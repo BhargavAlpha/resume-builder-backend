@@ -13,6 +13,9 @@ dbConnect();
 const port = 3000;
 
 app.post('/generate_pdf', latex);
+app.get('/hi', (req, res) => {
+    res.send('Hi there!');
+});
 
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
