@@ -38,13 +38,13 @@ const latex = async (req, res) => {
                     console.log('PDF file sent to the frontend');
                     
                     // Deleting the PDF file from the backend
-                    fs.unlink('output.pdf', (err) => {
-                        if (err) {
-                            console.error('Error deleting PDF file:', err);
-                        } else {
-                            console.log('PDF file deleted from the backend');
-                        }
-                    });
+                    // fs.unlink('output.pdf', (err) => {
+                    //     if (err) {
+                    //         console.error('Error deleting PDF file:', err);
+                    //     } else {
+                    //         console.log('PDF file deleted from the backend');
+                    //     }
+                    // });
                 });
             } else {
                 console.log('PDF generation failed');

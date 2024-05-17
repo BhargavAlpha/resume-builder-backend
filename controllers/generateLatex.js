@@ -3,6 +3,76 @@ function generateLatex(userData){
     const tools=userData.tools.map(tool=>tool.name);
     const technologies=userData.technologies.map(technology=>technology.name);
       console.log("function called");
+
+
+      let internship="";
+      if(userData.internships.length>0){
+        internship=`\\section{INTERNSHIP}
+        \\vspace{-5pt}
+        \\resumeSubHeadingListStart
+          ${
+            userData.internships.map(internship => `
+              \\resumeSubheading
+                {${internship.company} \\href{https://${internship.certificateLink}}{\\raisebox{-0.1\\height}\\faExternalLink }}{${internship.startDate} -- ${internship.endDate}}
+                {\\underline{${internship.role}}}{${internship.location}}
+              \\resumeItemListStart
+                \\resumeItem{\\normalsize{${internship.point1}}}
+                \\resumeItem{\\normalsize{${internship.point2}}}
+                \\resumeItem{\\normalsize{${internship.point3}}}
+              \\resumeItemListEnd
+            `).join('')
+          }
+        \\resumeSubHeadingListEnd
+        \\vspace{-12pt}`
+      }
+
+
+      let technicalSkills="";
+      if(languages.length>0 || tools.length>0 || technologies.length>0){
+        technicalSkills=`\\section{TECHNICAL SKILLS}
+        \\begin{itemize}[leftmargin=0.15in, label={}]
+          \\small{\\item{ ` ;
+            if(languages.length>0){
+                technicalSkills+=`\\textbf{\\normalsize{Languages:}}{ \\normalsize{${languages.join(', ')}}} \\\\`;
+            }
+            if(tools.length>0){
+              technicalSkills+=`\\textbf{\\normalsize{Developer Tools:}}{ \\normalsize{${tools.join(', ')}}} \\\\`;
+            }
+            if(technologies.length>0){
+              technicalSkills+=`\\textbf{\\normalsize{Technologies/Frameworks:}}{\\normalsize{${technologies.join(', ')}}} \\\\`;
+            }
+         technicalSkills+=` }}
+         \\end{itemize}
+         \\vspace{-15pt}`
+        }
+
+        let extracurricular="";
+        if(userData.extracurricular.length>0){
+          extracurricular=`\\section{EXTRACURRICULAR}
+          \\resumeSubHeadingListStart
+            ${
+              userData.extracurricular.map(activity => `
+                \\resumeSubheading{${activity.name} \\href{https://${activity.certificateLink}}{\\raisebox{-0.1\\height}\\faExternalLink } }{${activity.startDate} -- ${activity.endDate}}{\\underline{${activity.role}}}{${activity.location}}
+                \\resumeItemListStart
+                  \\resumeItem{\\normalsize{${activity.description}}}
+                  \\resumeItem{\\normalsize{Participation Certificate. \\href{https://${activity.certificateLink}}{\\raisebox{-0.1\\height}\\faExternalLink }}}
+                \\resumeItemListEnd
+              `).join('')
+            }
+          \\resumeSubHeadingListEnd
+          \\vspace{-11pt}
+      `
+        }
+        let certifications="";
+        if(userData.certifications.length>0){
+          certifications=`\\section{CERTIFICATIONS}
+          ${
+            userData.certifications.map(certification => `
+              $\\sbullet[.75] \\hspace{0.1cm}$ {\\href{https://${certification.link}}{${certification.name}}} \\hspace{1.45cm}
+            `).join('')
+          }`
+        }
+
       const latexContent = `
       %-------------------------
       % Resume in Latex
@@ -205,57 +275,15 @@ function generateLatex(userData){
         \\vspace{-12pt}
     
         %-----------EXPERIENCE-----------
-        \\section{INTERNSHIP}
-        \\vspace{-5pt}
-        \\resumeSubHeadingListStart
-          ${
-            userData.internships.map(internship => `
-              \\resumeSubheading
-                {${internship.company} \\href{https://${internship.certificateLink}}{\\raisebox{-0.1\\height}\\faExternalLink }}{${internship.startDate} -- ${internship.endDate}}
-                {\\underline{${internship.role}}}{${internship.location}}
-              \\resumeItemListStart
-                \\resumeItem{\\normalsize{${internship.point1}}}
-                \\resumeItem{\\normalsize{${internship.point2}}}
-                \\resumeItem{\\normalsize{${internship.point3}}}
-              \\resumeItemListEnd
-            `).join('')
-          }
-        \\resumeSubHeadingListEnd
-        \\vspace{-12pt}
+         ${internship}
     
         %-----------PROGRAMMING SKILLS-----------
-        \\section{TECHNICAL SKILLS}
-        \\begin{itemize}[leftmargin=0.15in, label={}]
-          \\small{\\item{
-            \\textbf{\\normalsize{Languages:}}{ \\normalsize{${languages.join(', ')}}} \\\\
-            \\textbf{\\normalsize{Developer Tools:}}{ \\normalsize{${tools.join(', ')}}} \\\\
-            \\textbf{\\normalsize{Technologies/Frameworks:}}{\\normalsize{${technologies.join(', ')}}} \\\\
-          }}
-        \\end{itemize}
-        \\vspace{-15pt}
+        ${technicalSkills}
     
         %-----------INVOLVEMENT---------------
-        \\section{EXTRACURRICULAR}
-        \\resumeSubHeadingListStart
-          ${
-            userData.extracurricular.map(activity => `
-              \\resumeSubheading{${activity.name} \\href{https://${activity.certificateLink}}{\\raisebox{-0.1\\height}\\faExternalLink } }{${activity.startDate} -- ${activity.endDate}}{\\underline{${activity.role}}}{${activity.location}}
-              \\resumeItemListStart
-                \\resumeItem{\\normalsize{${activity.description}}}
-                \\resumeItem{\\normalsize{Participation Certificate. \\href{https://${activity.certificateLink}}{\\raisebox{-0.1\\height}\\faExternalLink }}}
-              \\resumeItemListEnd
-            `).join('')
-          }
-        \\resumeSubHeadingListEnd
-        \\vspace{-11pt}
-    
+        ${extracurricular}
         %-----------CERTIFICATIONS---------------
-        \\section{CERTIFICATIONS}
-        ${
-          userData.certifications.map(certification => `
-            $\\sbullet[.75] \\hspace{0.1cm}$ {\\href{https://${certification.link}}{${certification.name}}} \\hspace{1.45cm}
-          `).join('')
-        }
+        ${certifications}
     
         \\end{document}
       `;
