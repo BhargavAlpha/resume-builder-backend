@@ -13,7 +13,7 @@ function generateLatex(userData){
           ${
             userData.internships.map(internship => `
               \\resumeSubheading
-                {${internship.company} \\href{https://${internship.certificateLink}}{\\raisebox{-0.1\\height}\\faExternalLink }}{${internship.startDate} -- ${internship.endDate}}
+                {${internship.company} \\href{https://${internship.certificateLink}}{Link}}{${internship.startDate} -- ${internship.endDate}}
                 {\\underline{${internship.role}}}{${internship.location}}
               \\resumeItemListStart
                 \\resumeItem{\\normalsize{${internship.point1}}}
@@ -52,10 +52,10 @@ function generateLatex(userData){
           \\resumeSubHeadingListStart
             ${
               userData.extracurricular.map(activity => `
-                \\resumeSubheading{${activity.name} \\href{https://${activity.certificateLink}}{\\raisebox{-0.1\\height}\\faExternalLink } }{${activity.startDate} -- ${activity.endDate}}{\\underline{${activity.role}}}{${activity.location}}
+                \\resumeSubheading{${activity.name} \\href{https://${activity.certificateLink}}{\\raisebox{-0.1\\height} } }{${activity.startDate} -- ${activity.endDate}}{\\underline{${activity.role}}}{${activity.location}}
                 \\resumeItemListStart
                   \\resumeItem{\\normalsize{${activity.description}}}
-                  \\resumeItem{\\normalsize{Participation Certificate. \\href{https://${activity.certificateLink}}{\\raisebox{-0.1\\height}\\faExternalLink }}}
+                  \\resumeItem{\\normalsize{Participation Certificate. \\href{https://${activity.certificateLink}}{\\raisebox{-0.1\\height} }}}
                 \\resumeItemListEnd
               `).join('')
             }
@@ -86,7 +86,6 @@ function generateLatex(userData){
       \\usepackage{latexsym}
       \\usepackage[empty]{fullpage}
       \\usepackage{titlesec}
-      \\usepackage{marvosym}
       \\usepackage[usenames,dvipsnames]{color}
       \\usepackage{verbatim}
       \\usepackage{enumitem}
@@ -101,7 +100,6 @@ function generateLatex(userData){
       
       \\RequirePackage{tikz}
       \\RequirePackage{xcolor}
-      \\RequirePackage{fontawesome}
       \\usepackage{tikz}
       \\usetikzlibrary{svg.path}
       
@@ -224,9 +222,10 @@ function generateLatex(userData){
         \\begin{center}
             {\\Huge \\scshape ${userData.name}} \\\\ \\vspace{1pt}
             ${userData.city},${userData.state} \\\\ \\vspace{1pt}
-            \\small \\href{tel:+${userData.phone}}{ \\raisebox{-0.1\\height}\\faPhone\\ \\underline{+${userData.phone}} ~} \\href{mailto:${userData.email}}{\\raisebox{-0.2\\height}\\faEnvelope\\ \\underline{${userData.email}}} ~ 
-            \\href{https://${userData.linkedin}}{\\raisebox{-0.2\\height}\\faLinkedinSquare\\ \\underline{${userData.linkedin}}}  ~
-            \\href{https://${userData.github}}{\\raisebox{-0.2\\height}\\faGithub\\ \\underline{${userData.github}}} ~
+            \\small \\href{tel:+123445}{{\\raisebox{-0.1\\height}{\\underline{+123445}}} ~} \\href{mailto:bhargavvvenkat515@gmail.com}{{\\raisebox{-0.2\\height}{\\underline{bhargavvvenkat515@gmail.com}}} ~} \\href{https://linkedin.com}{{\\raisebox{-0.2\\height} {\\underline{LinkedIn}}} ~} \\href{https://github.com}{{\\raisebox{-0.2\\height} {\\underline{Github}}} ~}
+
+      
+            
             \\vspace{-8pt}
         \\end{center}
     
@@ -262,7 +261,7 @@ function generateLatex(userData){
           ${
             userData.projects.map(project => `
               \\resumeProjectHeading
-                {\\href{https://${project.link}}{\\textbf{\\large{\\underline{${project.name}}}} \\href{https://${project.link}}{\\raisebox{-0.1\\height}\\faExternalLink }} $|$ \\large{\\underline{${project.techStack}}} }{${project.date}}
+                {\\href{https://${project.link}}{\\textbf{\\large{\\underline{${project.name}}}} \\href{https://${project.link}}{\\raisebox{-0.1\\height} }} $|$ \\large{\\underline{${project.techStack}}} }{${project.date}}
               \\resumeItemListStart
                 \\resumeItem{\\normalsize{${project.point1}}}
                 \\resumeItem{\\normalsize{${project.point2}}}
