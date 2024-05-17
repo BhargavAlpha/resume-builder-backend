@@ -13,8 +13,8 @@ dbConnect();
 
 
 
-app.post('/generate_pdf', latex);
-app.get('/hi', (req, res) => {
+app.post('/resume/generate-pdf', latex);
+app.get('/resume/hi', (req, res) => {
     res.send('Hi there!');
 });
 
