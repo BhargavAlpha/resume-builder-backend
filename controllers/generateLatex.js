@@ -4,21 +4,46 @@ function generateLatex(userData){
     const technologies=userData.technologies.map(technology=>technology.name);
       console.log("function called");
 
+      let projects="";
+      if(userData.projects.length>0){
+        projects=`
+%-----------PROJECTS-----------
+\\section{PROJECTS}
+\\vspace{-5pt}
+\\resumeSubHeadingListStart
+  ${
+    userData.projects.map(project => `
+      \\resumeProjectHeading
+      {\\textbf{\\large{\\underline{${project.name}}}} $|$ {\\underline{${project.techStack}}}}{${project.date}}
+      \\resumeItemListStart
+       ${project.point1 ?  `\\resumeItem{\\normalsize{${project.point1}}}` : ''} 
+        ${project.point2 ?  `\\resumeItem{\\normalsize{${project.point2}}}` : ''}
+        ${project.point3 ?  `\\resumeItem{\\normalsize{${project.point3}}}` : ''}
+        ${project.link ? `\\resumeItem{\\href{https://${project.link}}{\\textcolor{accent}{\\underline{\\normalsize{Live site here}}}}}` : ''} 
+      \\resumeItemListEnd
+      \\vspace{-13pt}
+    `).join('')
+  }
+     \\vspace{13pt}
+\\resumeSubHeadingListEnd
+\\vspace{-12pt}
+`;
 
+      }
+        
       let internship="";
       if(userData.internships.length>0){
         internship=`\\section{INTERNSHIP}
-        \\vspace{-5pt}
         \\resumeSubHeadingListStart
           ${
             userData.internships.map(internship => `
-              \\resumeSubheading
-                {${internship.company} \\href{https://${internship.certificateLink}}{Link}}{${internship.startDate} -- ${internship.endDate}}
-                {\\underline{${internship.role}}}{${internship.location}}
+            \\resumeSubheading
+            {${internship.company} $|$ ${internship.certificateLink ? `{\\href{https://${internship.certificateLink}}{\\textcolor{accent}{\\underline{\\normalsize{Link}}}}}` : ''}}{${internship.startDate} -- ${internship.endDate}}
+            {\\underline{${internship.role}}}{${internship.location}}          
               \\resumeItemListStart
-                \\resumeItem{\\normalsize{${internship.point1}}}
-                \\resumeItem{\\normalsize{${internship.point2}}}
-                \\resumeItem{\\normalsize{${internship.point3}}}
+                ${internship.point1 ?  `\\resumeItem{\\normalsize{${internship.point1}}}` : ''}
+                ${internship.point2 ?  `\\resumeItem{\\normalsize{${internship.point2}}}` : ''}
+                ${internship.point3 ?  `\\resumeItem{\\normalsize{${internship.point3}}}` : ''}
               \\resumeItemListEnd
             `).join('')
           }
@@ -222,10 +247,14 @@ function generateLatex(userData){
         \\begin{center}
             {\\Huge \\scshape ${userData.name}} \\\\ \\vspace{1pt}
             ${userData.city},${userData.state} \\\\ \\vspace{1pt}
-            \\small \\href{tel:+123445}{{\\raisebox{-0.1\\height}{\\underline{+123445}}} ~} \\href{mailto:bhargavvvenkat515@gmail.com}{{\\raisebox{-0.2\\height}{\\underline{bhargavvvenkat515@gmail.com}}} ~} \\href{https://linkedin.com}{{\\raisebox{-0.2\\height} {\\underline{LinkedIn}}} ~} \\href{https://github.com}{{\\raisebox{-0.2\\height} {\\underline{Github}}} ~}
-
-      
-            
+            \\small 
+            \\href{tel:+${userData.phone}}{\\includegraphics[height=1em]{phone_icon}}\\hspace{0.2em}\\raisebox{+0.4\\height}{\\underline{+${userData.phone}}} ~
+            \\href{mailto:${userData.email}}{\\includegraphics[height=1em]{email_icon}}\\hspace{0.2em}\\raisebox{+0.4\\height}{\\underline{${userData.email}}} ~ 
+            \\href{${userData.linkedin}}{\\includegraphics[height=1em]{linkedin_icon}}\\hspace{0.2em}\\raisebox{+0.3\\height}{\\underline{${"LinkedIn"}}} ~
+            \\href{${userData.github}}{\\includegraphics[height=1em]{github_icon}}\\hspace{0.2em}\\raisebox{+0.3\\height}{\\underline{${"GitHub"}}} ~
+            ${userData.hackerrank ? `\\href{${userData.hackerrank}}{\\includegraphics[height=1em]{hackerrank_icon}}\\hspace{0.2em}\\raisebox{+0.4\\height}{\\underline{${"Hackerrank"}}}` : ''} ~
+            ${userData.codeforces ? `\\href{${userData.codeforces}}{\\includegraphics[height=1em]{codeforces_icon}}\\hspace{0.2em}\\raisebox{+0.4\\height}{\\underline{${"Codeforces"}}}` : ''} ~
+         
             \\vspace{-8pt}
         \\end{center}
     
@@ -255,23 +284,7 @@ function generateLatex(userData){
         \\vspace*{2.0\\multicolsep}
     
         %-----------PROJECTS-----------
-        \\section{PROJECTS}
-        \\vspace{-5pt}
-        \\resumeSubHeadingListStart
-          ${
-            userData.projects.map(project => `
-              \\resumeProjectHeading
-                {\\href{https://${project.link}}{\\textbf{\\large{\\underline{${project.name}}}} \\href{https://${project.link}}{\\raisebox{-0.1\\height} }} $|$ \\large{\\underline{${project.techStack}}} }{${project.date}}
-              \\resumeItemListStart
-                \\resumeItem{\\normalsize{${project.point1}}}
-                \\resumeItem{\\normalsize{${project.point2}}}
-                \\resumeItem{\\normalsize{${project.point3}}}
-              \\resumeItemListEnd
-              \\vspace{-13pt}
-            `).join('')
-          }
-        \\resumeSubHeadingListEnd
-        \\vspace{-12pt}
+        ${projects}
     
         %-----------EXPERIENCE-----------
          ${internship}
