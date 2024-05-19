@@ -19,7 +19,9 @@ function generateLatex(userData){
        ${project.point1 ?  `\\resumeItem{\\normalsize{${project.point1}}}` : ''} 
         ${project.point2 ?  `\\resumeItem{\\normalsize{${project.point2}}}` : ''}
         ${project.point3 ?  `\\resumeItem{\\normalsize{${project.point3}}}` : ''}
-        ${project.link ? `\\resumeItem{\\href{https://${project.link}}{\\textcolor{accent}{\\underline{\\normalsize{Live site here}}}}}` : ''} 
+        ${project.link ? `\\resumeItem{\\href{${project.link.startsWith('https://') ? project.link : 'https://'+project.link}}{\\textcolor{accent}{\\underline{\\normalsize{Live site here}}}}}` : ''}
+
+
       \\resumeItemListEnd
       \\vspace{-13pt}
     `).join('')
@@ -38,7 +40,7 @@ function generateLatex(userData){
           ${
             userData.internships.map(internship => `
             \\resumeSubheading
-            {${internship.company} $|$ ${internship.certificateLink ? `{\\href{https://${internship.certificateLink}}{\\textcolor{accent}{\\underline{\\normalsize{Link}}}}}` : ''}}{${internship.startDate} -- ${internship.endDate}}
+            {${internship.company} $|$ ${internship.certificateLink ? `{\\href{${internship.certificateLink.startsWith('https://')?internship.certificateLink:'https://'+internship.certificateLink}}{\\textcolor{accent}{\\underline{\\normalsize{Link}}}}}` : ''}}{${internship.startDate} -- ${internship.endDate}}
             {\\underline{${internship.role}}}{${internship.location}}          
               \\resumeItemListStart
                 ${internship.point1 ?  `\\resumeItem{\\normalsize{${internship.point1}}}` : ''}
@@ -77,7 +79,7 @@ function generateLatex(userData){
           \\resumeSubHeadingListStart
             ${
               userData.extracurricular.map(activity => `
-              \\resumeSubheading{${activity.name} ${activity.certificateLink? `\\href{https://${activity.certificateLink}}{\\includegraphics[height=1em]{link_icon}\\raisebox{+0.4\\height}}` : ""}}{${activity.startDate} -- ${activity.endDate}}{\\underline{${activity.role}}}{${activity.location}}
+              \\resumeSubheading{${activity.name} ${activity.certificateLink? `\\href{${activity.certificateLink.startsWith('https://')?activity.certificateLink : 'https://'+activity.certificateLink }}{\\includegraphics[height=1em]{link_icon}\\raisebox{+0.4\\height}}` : ""}}{${activity.startDate} -- ${activity.endDate}}{\\underline{${activity.role}}}{${activity.location}}
                 \\resumeItemListStart
                   \\resumeItem{\\normalsize{${activity.description}}}
                 \\resumeItemListEnd
@@ -92,7 +94,7 @@ function generateLatex(userData){
           certifications=`\\section{CERTIFICATIONS}
           ${
             userData.certifications.map(certification => `
-              $\\sbullet[.75] \\hspace{0.1cm}$ {{${certification.name}}}\\hspace{0.04cm} ${certification.link ? `\\href{${certification.link}}{\\includegraphics[height=1em]{link_icon}}` :""}
+              $\\sbullet[.75] \\hspace{0.1cm}$ {{${certification.name}}}\\hspace{0.04cm} ${certification.link ? `\\href{${certification.link.startsWith('https://')?certification.link:'https://'+certification.link}}{\\includegraphics[height=1em]{link_icon}}` :""}
             `).join('')
           }`
         }
@@ -249,11 +251,11 @@ function generateLatex(userData){
             \\small 
             \\href{tel:+${userData.phone}}{\\includegraphics[height=1em]{phone_icon}}\\hspace{0.2em}\\raisebox{+0.4\\height}{\\underline{+${userData.phone}}} ~
             \\href{mailto:${userData.email}}{\\includegraphics[height=1em]{email_icon}}\\hspace{0.2em}\\raisebox{+0.4\\height}{\\underline{${userData.email}}} ~ 
-            \\href{${userData.linkedin}}{\\includegraphics[height=1em]{linkedin_icon}}\\hspace{0.2em}\\raisebox{+0.3\\height}{\\underline{${"LinkedIn"}}} ~
-            \\href{${userData.github}}{\\includegraphics[height=1em]{github_icon}}\\hspace{0.2em}\\raisebox{+0.3\\height}{\\underline{${"GitHub"}}} ~
-            ${userData.hackerrank ? `\\href{${userData.hackerrank}}{\\includegraphics[height=1em]{hackerrank_icon}}\\hspace{0.2em}\\raisebox{+0.4\\height}{\\underline{${"Hackerrank"}}}` : ''} ~
-            ${userData.codeforces ? `\\href{${userData.codeforces}}{\\includegraphics[height=1em]{codeforces_icon}}\\hspace{0.2em}\\raisebox{+0.4\\height}{\\underline{${"Codeforces"}}}` : ''} ~
-         
+            \\href{${userData.linkedin.startsWith('https://')?userData.linkedin:'https://' + userData.linkedin}}{\\includegraphics[height=1em]{linkedin_icon}}\\hspace{0.2em}\\raisebox{+0.3\\height}{\\underline{\\href{${userData.linkedin}}{LinkedIn}}} ~
+\\href{${userData.github.startsWith('https://')?userData.github:'https://' + userData.github}}{\\includegraphics[height=1em]{github_icon}}\\hspace{0.2em}\\raisebox{+0.3\\height}{\\underline{\\href{${userData.github.startsWith('https://')?userData.github:'https://' + userData.github}}{GitHub}}} ~
+${userData.hackerrank ? `\\href{${userData.hackerrank.startsWith('https://')?userData.hackerrank:'https://' + userData.hackerrank}}{\\includegraphics[height=1em]{hackerrank_icon}}\\hspace{0.2em}\\raisebox{+0.4\\height}{\\underline{\\href{${userData.hackerrank.startsWith('https://')?userData.hackerrank:'https://' + userData.hackerrank}}{Hackerrank}}}` : ''} ~
+${userData.codeforces ? `\\href{${userData.codeforces.startsWith('https://')?userData.codeforces:'https://' + userData.codeforces}}{\\includegraphics[height=1em]{codeforces_icon}}\\hspace{0.2em}\\raisebox{+0.4\\height}{\\underline{\\href{${userData.codeforces.startsWith('https://')?userData.codeforces:'https://'+userData.codeforces}}{Codeforces}}}` : ''} ~
+
             \\vspace{-8pt}
         \\end{center}
     

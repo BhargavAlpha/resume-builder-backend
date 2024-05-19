@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.5.17)  19 MAY 2024 12:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.5.17)  19 MAY 2024 13:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -690,7 +690,7 @@ Package hyperref Info: Link coloring OFF on input line 143.
 \@outlinefile=\write4
 \openout4 = `output.out'.
 
-<phone_icon.jpg, id=35, 513.92pt x 513.92pt>
+<phone_icon.jpg, id=7, 513.92pt x 513.92pt>
 File: phone_icon.jpg Graphic file (type jpg)
 <use phone_icon.jpg>
 Package pdftex.def Info: phone_icon.jpg  used on input line 151.
@@ -704,17 +704,17 @@ LaTeX Font Info:    Trying to load font information for U+lasy on input line 15
  (C:\Program Files\MiKTeX\tex/latex/base\ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-<email_icon.png, id=37, 225.84375pt x 225.84375pt>
+<email_icon.png, id=9, 225.84375pt x 225.84375pt>
 File: email_icon.png Graphic file (type png)
 <use email_icon.png>
 Package pdftex.def Info: email_icon.png  used on input line 152.
 (pdftex.def)             Requested size: 9.99712pt x 10.00002pt.
-<linkedin_icon.jpg, id=39, 513.92pt x 513.92pt>
+<linkedin_icon.jpg, id=11, 513.92pt x 513.92pt>
 File: linkedin_icon.jpg Graphic file (type jpg)
 <use linkedin_icon.jpg>
 Package pdftex.def Info: linkedin_icon.jpg  used on input line 153.
 (pdftex.def)             Requested size: 9.99826pt x 10.00002pt.
-<github_icon.png, id=41, 227.85126pt x 222.8325pt>
+<github_icon.png, id=14, 227.85126pt x 222.8325pt>
 File: github_icon.png Graphic file (type png)
 <use github_icon.png>
 Package pdftex.def Info: github_icon.png  used on input line 154.
@@ -738,18 +738,18 @@ Overfull \hbox (0.55968pt too wide) in paragraph at lines 200--202
  []
 
 
-Overfull \hbox (0.55968pt too wide) in paragraph at lines 210--212
+Overfull \hbox (0.55968pt too wide) in paragraph at lines 212--214
 []  
  []
 
-<link_icon.jpg, id=46, 1927.2pt x 1927.2pt>
+<link_icon.jpg, id=20, 1927.2pt x 1927.2pt>
 File: link_icon.jpg Graphic file (type jpg)
 <use link_icon.jpg>
-Package pdftex.def Info: link_icon.jpg  used on input line 256.
+Package pdftex.def Info: link_icon.jpg  used on input line 260.
 (pdftex.def)             Requested size: 13.49765pt x 13.5pt.
 File: link_icon.jpg Graphic file (type jpg)
 <use link_icon.jpg>
-Package pdftex.def Info: link_icon.jpg  used on input line 267.
+Package pdftex.def Info: link_icon.jpg  used on input line 271.
 (pdftex.def)             Requested size: 10.93927pt x 10.95003pt.
 [1
 
@@ -764,14 +764,20 @@ L3 programming layer <2024-04-11>
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package rerunfilecheck Info: File `output.out' has not changed.
-(rerunfilecheck)             Checksum: C8FE06105C66D1AE43EE434F301D9401;765.
+
+Package rerunfilecheck Warning: File `output.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `output.out':
+(rerunfilecheck)             Before: D41D8CD98F00B204E9800998ECF8427E;0
+(rerunfilecheck)             After:  C8FE06105C66D1AE43EE434F301D9401;765.
  ) 
 Here is how much of TeX's memory you used:
- 21424 strings out of 474370
- 404082 string characters out of 5750350
- 1958754 words of memory out of 5000000
- 43461 multiletter control sequences out of 15000+600000
+ 21416 strings out of 474370
+ 404003 string characters out of 5750350
+ 1959754 words of memory out of 5000000
+ 43453 multiletter control sequences out of 15000+600000
  565986 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,10n,93p,418b,452s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -784,9 +790,9 @@ cmsy10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C
 :/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Fi
 les/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb>
 Output written on C:\Users\bharg\Desktop\100x\roxilir\roxiler-backend\output.pd
-f (1 page, 210258 bytes).
+f (1 page, 208582 bytes).
 PDF statistics:
- 106 PDF objects out of 1000 (max. 8388607)
+ 86 PDF objects out of 1000 (max. 8388607)
  9 named destinations out of 1000 (max. 500000)
- 94 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 38 words of extra memory for PDF output out of 10000 (max. 10000000)
 
