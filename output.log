@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.5.17)  18 MAY 2024 15:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.5.17)  19 MAY 2024 12:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -690,7 +690,7 @@ Package hyperref Info: Link coloring OFF on input line 143.
 \@outlinefile=\write4
 \openout4 = `output.out'.
 
-<phone_icon.jpg, id=19, 513.92pt x 513.92pt>
+<phone_icon.jpg, id=35, 513.92pt x 513.92pt>
 File: phone_icon.jpg Graphic file (type jpg)
 <use phone_icon.jpg>
 Package pdftex.def Info: phone_icon.jpg  used on input line 151.
@@ -704,31 +704,21 @@ LaTeX Font Info:    Trying to load font information for U+lasy on input line 15
  (C:\Program Files\MiKTeX\tex/latex/base\ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-<email_icon.png, id=21, 225.84375pt x 225.84375pt>
+<email_icon.png, id=37, 225.84375pt x 225.84375pt>
 File: email_icon.png Graphic file (type png)
 <use email_icon.png>
 Package pdftex.def Info: email_icon.png  used on input line 152.
 (pdftex.def)             Requested size: 9.99712pt x 10.00002pt.
-<linkedin_icon.jpg, id=23, 513.92pt x 513.92pt>
+<linkedin_icon.jpg, id=39, 513.92pt x 513.92pt>
 File: linkedin_icon.jpg Graphic file (type jpg)
 <use linkedin_icon.jpg>
 Package pdftex.def Info: linkedin_icon.jpg  used on input line 153.
 (pdftex.def)             Requested size: 9.99826pt x 10.00002pt.
-<github_icon.png, id=25, 227.85126pt x 222.8325pt>
+<github_icon.png, id=41, 227.85126pt x 222.8325pt>
 File: github_icon.png Graphic file (type png)
 <use github_icon.png>
 Package pdftex.def Info: github_icon.png  used on input line 154.
 (pdftex.def)             Requested size: 10.22504pt x 10.00002pt.
-<hackerrank_icon.jpg, id=27, 256.96pt x 256.96pt>
-File: hackerrank_icon.jpg Graphic file (type jpg)
-<use hackerrank_icon.jpg>
-Package pdftex.def Info: hackerrank_icon.jpg  used on input line 155.
-(pdftex.def)             Requested size: 9.99826pt x 10.00002pt.
-<codeforces_icon.jpg, id=30, 513.92pt x 513.92pt>
-File: codeforces_icon.jpg Graphic file (type jpg)
-<use codeforces_icon.jpg>
-Package pdftex.def Info: codeforces_icon.jpg  used on input line 156.
-(pdftex.def)             Requested size: 9.99826pt x 10.00002pt.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/bx/sc' undefined
@@ -741,17 +731,31 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 167.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 198.
+(Font)              <12> on input line 200.
 
-Overfull \hbox (0.55968pt too wide) in paragraph at lines 198--200
+Overfull \hbox (0.55968pt too wide) in paragraph at lines 200--202
 []  
  []
 
+
+Overfull \hbox (0.55968pt too wide) in paragraph at lines 210--212
+[]  
+ []
+
+<link_icon.jpg, id=46, 1927.2pt x 1927.2pt>
+File: link_icon.jpg Graphic file (type jpg)
+<use link_icon.jpg>
+Package pdftex.def Info: link_icon.jpg  used on input line 256.
+(pdftex.def)             Requested size: 13.49765pt x 13.5pt.
+File: link_icon.jpg Graphic file (type jpg)
+<use link_icon.jpg>
+Package pdftex.def Info: link_icon.jpg  used on input line 267.
+(pdftex.def)             Requested size: 10.93927pt x 10.95003pt.
 [1
 
 {C:/Users/bharg/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./phone_icon
-.jpg> <./email_icon.png> <./linkedin_icon.jpg> <./github_icon.png> <./hackerran
-k_icon.jpg> <./codeforces_icon.jpg>] (output.aux)
+.jpg> <./email_icon.png> <./linkedin_icon.jpg> <./github_icon.png> <./link_icon
+.jpg>] (output.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-04-11>
@@ -761,16 +765,16 @@ L3 programming layer <2024-04-11>
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `output.out' has not changed.
-(rerunfilecheck)             Checksum: D916281E3316A527971BE518F3C2DAF8;315.
+(rerunfilecheck)             Checksum: C8FE06105C66D1AE43EE434F301D9401;765.
  ) 
 Here is how much of TeX's memory you used:
- 21429 strings out of 474370
- 404403 string characters out of 5750350
- 1941754 words of memory out of 5000000
- 43470 multiletter control sequences out of 15000+600000
+ 21424 strings out of 474370
+ 404082 string characters out of 5750350
+ 1958754 words of memory out of 5000000
+ 43461 multiletter control sequences out of 15000+600000
  565986 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,9n,93p,418b,452s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,10n,93p,418b,452s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Progra
 m Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKT
 eX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Program Files/MiKTeX/fonts/t
@@ -780,9 +784,9 @@ cmsy10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C
 :/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Fi
 les/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb>
 Output written on C:\Users\bharg\Desktop\100x\roxilir\roxiler-backend\output.pd
-f (1 page, 159684 bytes).
+f (1 page, 210258 bytes).
 PDF statistics:
- 90 PDF objects out of 1000 (max. 8388607)
- 5 named destinations out of 1000 (max. 500000)
- 67 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 106 PDF objects out of 1000 (max. 8388607)
+ 9 named destinations out of 1000 (max. 500000)
+ 94 words of extra memory for PDF output out of 10000 (max. 10000000)
 

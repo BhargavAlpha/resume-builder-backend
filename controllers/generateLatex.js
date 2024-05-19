@@ -77,10 +77,9 @@ function generateLatex(userData){
           \\resumeSubHeadingListStart
             ${
               userData.extracurricular.map(activity => `
-                \\resumeSubheading{${activity.name} \\href{https://${activity.certificateLink}}{\\raisebox{-0.1\\height} } }{${activity.startDate} -- ${activity.endDate}}{\\underline{${activity.role}}}{${activity.location}}
+              \\resumeSubheading{${activity.name} ${activity.certificateLink? `\\href{https://${activity.certificateLink}}{\\includegraphics[height=1em]{link_icon}\\raisebox{+0.4\\height}}` : ""}}{${activity.startDate} -- ${activity.endDate}}{\\underline{${activity.role}}}{${activity.location}}
                 \\resumeItemListStart
                   \\resumeItem{\\normalsize{${activity.description}}}
-                  \\resumeItem{\\normalsize{Participation Certificate. \\href{https://${activity.certificateLink}}{\\raisebox{-0.1\\height} }}}
                 \\resumeItemListEnd
               `).join('')
             }
@@ -93,7 +92,7 @@ function generateLatex(userData){
           certifications=`\\section{CERTIFICATIONS}
           ${
             userData.certifications.map(certification => `
-              $\\sbullet[.75] \\hspace{0.1cm}$ {\\href{https://${certification.link}}{${certification.name}}} \\hspace{1.45cm}
+              $\\sbullet[.75] \\hspace{0.1cm}$ {{${certification.name}}}\\hspace{0.04cm} ${certification.link ? `\\href{${certification.link}}{\\includegraphics[height=1em]{link_icon}}` :""}
             `).join('')
           }`
         }
