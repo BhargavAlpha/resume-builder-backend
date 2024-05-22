@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.5.17)  19 MAY 2024 13:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.5.17)  23 MAY 2024 02:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -709,16 +709,6 @@ File: email_icon.png Graphic file (type png)
 <use email_icon.png>
 Package pdftex.def Info: email_icon.png  used on input line 152.
 (pdftex.def)             Requested size: 9.99712pt x 10.00002pt.
-<linkedin_icon.jpg, id=11, 513.92pt x 513.92pt>
-File: linkedin_icon.jpg Graphic file (type jpg)
-<use linkedin_icon.jpg>
-Package pdftex.def Info: linkedin_icon.jpg  used on input line 153.
-(pdftex.def)             Requested size: 9.99826pt x 10.00002pt.
-<github_icon.png, id=14, 227.85126pt x 222.8325pt>
-File: github_icon.png Graphic file (type png)
-<use github_icon.png>
-Package pdftex.def Info: github_icon.png  used on input line 154.
-(pdftex.def)             Requested size: 10.22504pt x 10.00002pt.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/bx/sc' undefined
@@ -731,31 +721,16 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 167.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 200.
+(Font)              <12> on input line 182.
 
-Overfull \hbox (0.55968pt too wide) in paragraph at lines 200--202
+Overfull \hbox (0.55968pt too wide) in paragraph at lines 182--184
 []  
  []
 
-
-Overfull \hbox (0.55968pt too wide) in paragraph at lines 212--214
-[]  
- []
-
-<link_icon.jpg, id=20, 1927.2pt x 1927.2pt>
-File: link_icon.jpg Graphic file (type jpg)
-<use link_icon.jpg>
-Package pdftex.def Info: link_icon.jpg  used on input line 260.
-(pdftex.def)             Requested size: 13.49765pt x 13.5pt.
-File: link_icon.jpg Graphic file (type jpg)
-<use link_icon.jpg>
-Package pdftex.def Info: link_icon.jpg  used on input line 271.
-(pdftex.def)             Requested size: 10.93927pt x 10.95003pt.
 [1
 
 {C:/Users/bharg/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./phone_icon
-.jpg> <./email_icon.png> <./linkedin_icon.jpg> <./github_icon.png> <./link_icon
-.jpg>] (output.aux)
+.jpg> <./email_icon.png>] (output.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-04-11>
@@ -771,16 +746,16 @@ Package rerunfilecheck Warning: File `output.out' has changed.
 
 Package rerunfilecheck Info: Checksums for `output.out':
 (rerunfilecheck)             Before: D41D8CD98F00B204E9800998ECF8427E;0
-(rerunfilecheck)             After:  C8FE06105C66D1AE43EE434F301D9401;765.
+(rerunfilecheck)             After:  18672A2CEE04FB1729C96702BC81F137;264.
  ) 
 Here is how much of TeX's memory you used:
- 21416 strings out of 474370
- 404003 string characters out of 5750350
- 1959754 words of memory out of 5000000
- 43453 multiletter control sequences out of 15000+600000
+ 21371 strings out of 474370
+ 403075 string characters out of 5750350
+ 1938754 words of memory out of 5000000
+ 43412 multiletter control sequences out of 15000+600000
  565986 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,10n,93p,418b,452s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,9n,93p,418b,452s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Progra
 m Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKT
 eX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Program Files/MiKTeX/fonts/t
@@ -790,9 +765,9 @@ cmsy10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C
 :/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Fi
 les/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb>
 Output written on C:\Users\bharg\Desktop\100x\roxilir\roxiler-backend\output.pd
-f (1 page, 208582 bytes).
+f (1 page, 123584 bytes).
 PDF statistics:
- 86 PDF objects out of 1000 (max. 8388607)
- 9 named destinations out of 1000 (max. 500000)
- 38 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 68 PDF objects out of 1000 (max. 8388607)
+ 5 named destinations out of 1000 (max. 500000)
+ 23 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,105 +1,174 @@
-function generateLatex(userData){
-    const languages=userData.languages.map(lang=>lang.name);
-    const tools=userData.tools.map(tool=>tool.name);
-    const technologies=userData.technologies.map(technology=>technology.name);
-      console.log("function called");
-
-      let projects="";
-      if(userData.projects.length>0){
-        projects=`
+function generateLatex(userData) {
+  console.log("function called");
+  let coursework = "";
+  if (userData.coursework) {
+    coursework = `\\section{COURSEWORK / SKILLS}
+        \\begin{multicols}{4}
+            \\begin{itemize}[itemsep=-2pt, parsep=5pt]
+                ${userData.coursework
+                  .map(
+                    (skill) => `
+                    \\item ${skill.name}
+                  `
+                  )
+                  .join("")}
+            \\end{itemize}
+        \\end{multicols}
+        \\vspace*{2.0\\multicolsep}`;
+  }
+  let projects = "";
+  if (userData.projects.length > 0) {
+    projects = `
 %-----------PROJECTS-----------
 \\section{PROJECTS}
 \\vspace{-5pt}
 \\resumeSubHeadingListStart
-  ${
-    userData.projects.map(project => `
+  ${userData.projects
+    .map(
+      (project) => `
       \\resumeProjectHeading
-      {\\textbf{\\large{\\underline{${project.name}}}} $|$ {\\underline{${project.techStack}}}}{${project.date}}
+      {\\textbf{\\large{\\underline{${project.name}}}} $|$ {\\underline{${
+        project.techStack
+      }}}}{${project.date}}
       \\resumeItemListStart
-       ${project.point1 ?  `\\resumeItem{\\normalsize{${project.point1}}}` : ''} 
-        ${project.point2 ?  `\\resumeItem{\\normalsize{${project.point2}}}` : ''}
-        ${project.point3 ?  `\\resumeItem{\\normalsize{${project.point3}}}` : ''}
-        ${project.link ? `\\resumeItem{\\href{${project.link.startsWith('https://') ? project.link : 'https://'+project.link}}{\\textcolor{accent}{\\underline{\\normalsize{Live site here}}}}}` : ''}
+       ${project.description.map(
+         (point, index) => `
+            ${point ? `\\resumeItem{\\normalsize{${point}}}` : ""}
+         `
+       )}
+        ${
+          project.link
+            ? `\\resumeItem{\\href{${
+                project.link.startsWith("https://")
+                  ? project.link
+                  : "https://" + project.link
+              }}{\\textcolor{accent}{\\underline{\\normalsize{Live site here}}}}}`
+            : ""
+        }
 
 
       \\resumeItemListEnd
       \\vspace{-13pt}
-    `).join('')
-  }
+    `
+    )
+    .join("")}
      \\vspace{13pt}
 \\resumeSubHeadingListEnd
 \\vspace{-12pt}
 `;
+  }
 
-      }
-        
-      let internship="";
-      if(userData.internships.length>0){
-        internship=`\\section{INTERNSHIP}
-        \\resumeSubHeadingListStart
-          ${
-            userData.internships.map(internship => `
-            \\resumeSubheading
-            {${internship.company} $|$ ${internship.certificateLink ? `{\\href{${internship.certificateLink.startsWith('https://')?internship.certificateLink:'https://'+internship.certificateLink}}{\\textcolor{accent}{\\underline{\\normalsize{Link}}}}}` : ''}}{${internship.startDate} -- ${internship.endDate}}
-            {\\underline{${internship.role}}}{${internship.location}}          
-              \\resumeItemListStart
-                ${internship.point1 ?  `\\resumeItem{\\normalsize{${internship.point1}}}` : ''}
-                ${internship.point2 ?  `\\resumeItem{\\normalsize{${internship.point2}}}` : ''}
-                ${internship.point3 ?  `\\resumeItem{\\normalsize{${internship.point3}}}` : ''}
-              \\resumeItemListEnd
-            `).join('')
-          }
-        \\resumeSubHeadingListEnd
-        \\vspace{-12pt}`
-      }
+  let internship = "";
+  if (userData.internships.length > 0) {
+    internship = `\\section{INTERNSHIP}
+  \\resumeSubHeadingListStart
+    ${userData.internships
+      .map(
+        (internship) => `
+        \\resumeSubheading
+        {${internship.company}  ${
+          internship.certificateLink
+            ? `{$|$ \\href{${
+                internship.certificateLink.startsWith("https://")
+                  ? internship.certificateLink
+                  : "https://" + internship.certificateLink
+              }}{\\textcolor{accent}{\\underline{\\normalsize{Link}}}}}`
+            : ""
+        }}{${internship.startDate} -- ${internship.endDate}}
+        {\\underline{${internship.role}}}{${internship.location}}          
+        \\resumeItemListStart
+          ${internship.description.map((point) =>
+            point ? `\\resumeItem{\\normalsize{${point}}}` : ""
+          )}
+        \\resumeItemListEnd
+      `
+      )
+      .join("")}
+  \\resumeSubHeadingListEnd
+  \\vspace{-12pt}`;
+  }
 
-
-      let technicalSkills="";
-      if(languages.length>0 || tools.length>0 || technologies.length>0){
-        technicalSkills=`\\section{TECHNICAL SKILLS}
+  let technicalSkills = "";
+  if (userData.technicalSkills) {
+    if (languages.length > 0 || tools.length > 0 || technologies.length > 0) {
+      technicalSkills = `\\section{TECHNICAL SKILLS}
         \\begin{itemize}[leftmargin=0.15in, label={}]
-          \\small{\\item{ ` ;
-            if(languages.length>0){
-                technicalSkills+=`\\textbf{\\normalsize{Languages:}}{ \\normalsize{${languages.join(', ')}}} \\\\`;
-            }
-            if(tools.length>0){
-              technicalSkills+=`\\textbf{\\normalsize{Developer Tools:}}{ \\normalsize{${tools.join(', ')}}} \\\\`;
-            }
-            if(technologies.length>0){
-              technicalSkills+=`\\textbf{\\normalsize{Technologies/Frameworks:}}{\\normalsize{${technologies.join(', ')}}} \\\\`;
-            }
-         technicalSkills+=` }}
+          \\small{\\item{ `;
+      if (languages.length > 0) {
+        technicalSkills += `\\textbf{\\normalsize{Languages:}}{ \\normalsize{${languages.join(
+          ", "
+        )}}} \\\\`;
+      }
+      if (tools.length > 0) {
+        technicalSkills += `\\textbf{\\normalsize{Developer Tools:}}{ \\normalsize{${tools.join(
+          ", "
+        )}}} \\\\`;
+      }
+      if (technologies.length > 0) {
+        technicalSkills += `\\textbf{\\normalsize{Technologies/Frameworks:}}{\\normalsize{${technologies.join(
+          ", "
+        )}}} \\\\`;
+      }
+      technicalSkills += ` }}
          \\end{itemize}
-         \\vspace{-15pt}`
-        }
+         \\vspace{-15pt}`;
+    }
+  }
 
-        let extracurricular="";
-        if(userData.extracurricular.length>0){
-          extracurricular=`\\section{EXTRACURRICULAR}
+  let extracurricular = "";
+  if (userData.extracurricular) {
+    if (userData.extracurricular.length > 0) {
+      extracurricular = `\\section{EXTRACURRICULAR}
           \\resumeSubHeadingListStart
-            ${
-              userData.extracurricular.map(activity => `
-              \\resumeSubheading{${activity.name} ${activity.certificateLink? `\\href{${activity.certificateLink.startsWith('https://')?activity.certificateLink : 'https://'+activity.certificateLink }}{\\includegraphics[height=1em]{link_icon}\\raisebox{+0.4\\height}}` : ""}}{${activity.startDate} -- ${activity.endDate}}{\\underline{${activity.role}}}{${activity.location}}
+            ${userData.extracurricular
+              .map(
+                (activity) => `
+              \\resumeSubheading{${activity.name} ${
+                  activity.certificateLink
+                    ? `\\href{${
+                        activity.certificateLink.startsWith("https://")
+                          ? activity.certificateLink
+                          : "https://" + activity.certificateLink
+                      }}{\\includegraphics[height=1em]{link_icon}\\raisebox{+0.4\\height}}`
+                    : ""
+                }}{${activity.startDate} -- ${activity.endDate}}{\\underline{${
+                  activity.role
+                }}}{${activity.location}}
                 \\resumeItemListStart
                   \\resumeItem{\\normalsize{${activity.description}}}
                 \\resumeItemListEnd
-              `).join('')
-            }
+              `
+              )
+              .join("")}
           \\resumeSubHeadingListEnd
           \\vspace{-11pt}
-      `
-        }
-        let certifications="";
-        if(userData.certifications.length>0){
-          certifications=`\\section{CERTIFICATIONS}
-          ${
-            userData.certifications.map(certification => `
-              $\\sbullet[.75] \\hspace{0.1cm}$ {{${certification.name}}}\\hspace{0.04cm} ${certification.link ? `\\href{${certification.link.startsWith('https://')?certification.link:'https://'+certification.link}}{\\includegraphics[height=1em]{link_icon}}` :""}
-            `).join('')
-          }`
-        }
-
-      const latexContent = `
+      `;
+    }
+  }
+  let certifications = "";
+  if (userData.certifications) {
+    if (userData.certifications.length > 0) {
+      certifications = `\\section{CERTIFICATIONS}
+          ${userData.certifications
+            .map(
+              (certification) => `
+              $\\sbullet[.75] \\hspace{0.1cm}$ {{${
+                certification.name
+              }}}\\hspace{0.04cm} ${
+                certification.link
+                  ? `\\href{${
+                      certification.link.startsWith("https://")
+                        ? certification.link
+                        : "https://" + certification.link
+                    }}{\\includegraphics[height=1em]{link_icon}}`
+                  : ""
+              }
+            `
+            )
+            .join("")}`;
+    }
+  }
+  const latexContent = `
       %-------------------------
       % Resume in Latex
       % Author : Abey George
@@ -249,12 +318,68 @@ function generateLatex(userData){
             {\\Huge \\scshape ${userData.name}} \\\\ \\vspace{1pt}
             ${userData.city},${userData.state} \\\\ \\vspace{1pt}
             \\small 
-            \\href{tel:+${userData.phone}}{\\includegraphics[height=1em]{phone_icon}}\\hspace{0.2em}\\raisebox{+0.4\\height}{\\underline{+${userData.phone}}} ~
-            \\href{mailto:${userData.email}}{\\includegraphics[height=1em]{email_icon}}\\hspace{0.2em}\\raisebox{+0.4\\height}{\\underline{${userData.email}}} ~ 
-            \\href{${userData.linkedin.startsWith('https://')?userData.linkedin:'https://' + userData.linkedin}}{\\includegraphics[height=1em]{linkedin_icon}}\\hspace{0.2em}\\raisebox{+0.3\\height}{\\underline{\\href{${userData.linkedin}}{LinkedIn}}} ~
-\\href{${userData.github.startsWith('https://')?userData.github:'https://' + userData.github}}{\\includegraphics[height=1em]{github_icon}}\\hspace{0.2em}\\raisebox{+0.3\\height}{\\underline{\\href{${userData.github.startsWith('https://')?userData.github:'https://' + userData.github}}{GitHub}}} ~
-${userData.hackerrank ? `\\href{${userData.hackerrank.startsWith('https://')?userData.hackerrank:'https://' + userData.hackerrank}}{\\includegraphics[height=1em]{hackerrank_icon}}\\hspace{0.2em}\\raisebox{+0.4\\height}{\\underline{\\href{${userData.hackerrank.startsWith('https://')?userData.hackerrank:'https://' + userData.hackerrank}}{Hackerrank}}}` : ''} ~
-${userData.codeforces ? `\\href{${userData.codeforces.startsWith('https://')?userData.codeforces:'https://' + userData.codeforces}}{\\includegraphics[height=1em]{codeforces_icon}}\\hspace{0.2em}\\raisebox{+0.4\\height}{\\underline{\\href{${userData.codeforces.startsWith('https://')?userData.codeforces:'https://'+userData.codeforces}}{Codeforces}}}` : ''} ~
+           ${
+             userData.phone
+               ? `\\href{tel:+${userData.phone}}{\\includegraphics[height=1em]{phone_icon}}\\hspace{0.2em}\\raisebox{+0.4\\height}{\\underline{+${userData.phone}}}`
+               : ""
+           } ~
+          ${
+            userData.email
+              ? `\\href{mailto:${userData.email}}{\\includegraphics[height=1em]{email_icon}}\\hspace{0.2em}\\raisebox{+0.4\\height}{\\underline{${userData.email}}}`
+              : ""
+          } ~ 
+            ${
+              userData.linkedin
+                ? `\\href{${
+                    userData.linkedin.startsWith("https://")
+                      ? userData.linkedin
+                      : "https://" + userData.linkedin
+                  }}{\\includegraphics[height=1em]{linkedin_icon}}\\hspace{0.2em}\\raisebox{+0.4\\height}{\\underline{\\href{${
+                    userData.linkedin.startsWith("https://")
+                      ? userData.linkedin
+                      : "https://" + userData.linkedin
+                  }}{LinkedIn}}}`
+                : ""
+            } ~
+            ${
+              userData.github
+                ? `\\href{${
+                    userData.github.startsWith("https://")
+                      ? userData.github
+                      : "https://" + userData.github
+                  }}{\\includegraphics[height=1em]{github_icon}}\\hspace{0.2em}\\raisebox{+0.4\\height}{\\underline{\\href{${
+                    userData.github.startsWith("https://")
+                      ? userData.github
+                      : "https://" + userData.github
+                  }}{Github}}}`
+                : ""
+            } ~
+${
+  userData.hackerrank
+    ? `\\href{${
+        userData.hackerrank.startsWith("https://")
+          ? userData.hackerrank
+          : "https://" + userData.hackerrank
+      }}{\\includegraphics[height=1em]{hackerrank_icon}}\\hspace{0.2em}\\raisebox{+0.4\\height}{\\underline{\\href{${
+        userData.hackerrank.startsWith("https://")
+          ? userData.hackerrank
+          : "https://" + userData.hackerrank
+      }}{Hackerrank}}}`
+    : ""
+} ~
+${
+  userData.codeforces
+    ? `\\href{${
+        userData.codeforces.startsWith("https://")
+          ? userData.codeforces
+          : "https://" + userData.codeforces
+      }}{\\includegraphics[height=1em]{codeforces_icon}}\\hspace{0.2em}\\raisebox{+0.4\\height}{\\underline{\\href{${
+        userData.codeforces.startsWith("https://")
+          ? userData.codeforces
+          : "https://" + userData.codeforces
+      }}{Codeforces}}}`
+    : ""
+} ~
 
             \\vspace{-8pt}
         \\end{center}
@@ -262,27 +387,19 @@ ${userData.codeforces ? `\\href{${userData.codeforces.startsWith('https://')?use
         %-----------EDUCATION-----------
         \\section{EDUCATION}
         \\resumeSubHeadingListStart
-          ${
-            userData.education.map(edu => `
+          ${userData.education
+            .map(
+              (edu) => `
               \\resumeSubheading
                 {${edu.college}}{${edu.startDate} -- ${edu.endDate}}
-                {${edu.degree} - \\textbf{CGPA} - \\textbf{${edu.cgpa}}} {${edu.city},${edu.country}}
-            `).join('')
-          }
+                {${edu.degree} - \\textbf{CGPA} - \\textbf{${edu.cgpa}}} {${edu.city}}
+            `
+            )
+            .join("")}
         \\resumeSubHeadingListEnd
     
         %------RELEVANT COURSEWORK-------
-        \\section{COURSEWORK / SKILLS}
-        \\begin{multicols}{4}
-            \\begin{itemize}[itemsep=-2pt, parsep=5pt]
-                ${
-                  userData.coursework.map(skill => `
-                    \\item ${skill.name}
-                  `).join('')
-                }
-            \\end{itemize}
-        \\end{multicols}
-        \\vspace*{2.0\\multicolsep}
+        ${coursework}
     
         %-----------PROJECTS-----------
         ${projects}
@@ -300,7 +417,7 @@ ${userData.codeforces ? `\\href{${userData.codeforces.startsWith('https://')?use
     
         \\end{document}
       `;
-    
-      return latexContent;
-      }
-exports.generateLatex=generateLatex;
+
+  return latexContent;
+}
+exports.generateLatex = generateLatex;
