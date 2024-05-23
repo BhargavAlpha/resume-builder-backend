@@ -19,9 +19,9 @@ connectDB();
 app.post('/resume/generate-pdf', latex);
 app.post('/resume/store-data', storeResumeData);
 app.post('/resume/get-data', getResumeData);
-app.use('/education', educationRoutes);
-app.use('/project', projectRoutes);
-app.use('/experience', experienceRoutes);
+app.use('/resume/education', educationRoutes);
+app.use('/resume/project', projectRoutes);
+app.use('/resume/experience', experienceRoutes);
 
 app.get('/resume/hi', (req, res) => {
     res.send('Hi there!');

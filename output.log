@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.5.17)  23 MAY 2024 02:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.5.17)  24 MAY 2024 02:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -690,7 +690,7 @@ Package hyperref Info: Link coloring OFF on input line 143.
 \@outlinefile=\write4
 \openout4 = `output.out'.
 
-<phone_icon.jpg, id=7, 513.92pt x 513.92pt>
+<phone_icon.jpg, id=19, 513.92pt x 513.92pt>
 File: phone_icon.jpg Graphic file (type jpg)
 <use phone_icon.jpg>
 Package pdftex.def Info: phone_icon.jpg  used on input line 151.
@@ -704,7 +704,7 @@ LaTeX Font Info:    Trying to load font information for U+lasy on input line 15
  (C:\Program Files\MiKTeX\tex/latex/base\ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-<email_icon.png, id=9, 225.84375pt x 225.84375pt>
+<email_icon.png, id=21, 225.84375pt x 225.84375pt>
 File: email_icon.png Graphic file (type png)
 <use email_icon.png>
 Package pdftex.def Info: email_icon.png  used on input line 152.
@@ -721,9 +721,14 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 167.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 182.
+(Font)              <12> on input line 190.
 
-Overfull \hbox (0.55968pt too wide) in paragraph at lines 182--184
+Overfull \hbox (0.55968pt too wide) in paragraph at lines 190--192
+[]  
+ []
+
+
+Overfull \hbox (0.55968pt too wide) in paragraph at lines 204--206
 []  
  []
 
@@ -739,20 +744,14 @@ L3 programming layer <2024-04-11>
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-Package rerunfilecheck Warning: File `output.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `output.out':
-(rerunfilecheck)             Before: D41D8CD98F00B204E9800998ECF8427E;0
-(rerunfilecheck)             After:  18672A2CEE04FB1729C96702BC81F137;264.
+Package rerunfilecheck Info: File `output.out' has not changed.
+(rerunfilecheck)             Checksum: 18672A2CEE04FB1729C96702BC81F137;264.
  ) 
 Here is how much of TeX's memory you used:
- 21371 strings out of 474370
- 403075 string characters out of 5750350
- 1938754 words of memory out of 5000000
- 43412 multiletter control sequences out of 15000+600000
+ 21375 strings out of 474370
+ 403110 string characters out of 5750350
+ 1944754 words of memory out of 5000000
+ 43416 multiletter control sequences out of 15000+600000
  565986 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,9n,93p,418b,452s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -765,9 +764,9 @@ cmsy10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C
 :/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Fi
 les/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb>
 Output written on C:\Users\bharg\Desktop\100x\roxilir\roxiler-backend\output.pd
-f (1 page, 123584 bytes).
+f (1 page, 126863 bytes).
 PDF statistics:
- 68 PDF objects out of 1000 (max. 8388607)
+ 77 PDF objects out of 1000 (max. 8388607)
  5 named destinations out of 1000 (max. 500000)
- 23 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 47 words of extra memory for PDF output out of 10000 (max. 10000000)
 

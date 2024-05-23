@@ -15,6 +15,10 @@ async function getResumeData(req, res) {
     console.log(email);
     try {
         const resume = await ResumeModel.findOne({email:email});
+        if (!resume) {
+          console.log("Resume not found");
+          return res.status(404).send({ error: "Resume not found" });
+      }
         res.status(200).send(resume);
         console.log(resume);
     } catch (error) {

@@ -5,6 +5,10 @@ const resumeSchema = new mongoose.Schema({
   phone: String,
   city: String,
   state: String,
+  position: String,
+  company: String,
+  linkedin: String,
+  github: String,
   education: [{
     college: String,
     city: String,
