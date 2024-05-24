@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.5.17)  24 MAY 2024 02:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.5.17)  24 MAY 2024 16:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -728,7 +728,12 @@ Overfull \hbox (0.55968pt too wide) in paragraph at lines 190--192
  []
 
 
-Overfull \hbox (0.55968pt too wide) in paragraph at lines 204--206
+Overfull \hbox (0.55968pt too wide) in paragraph at lines 198--200
+[]  
+ []
+
+
+Overfull \hbox (0.55968pt too wide) in paragraph at lines 206--208
 []  
  []
 
@@ -750,7 +755,7 @@ Package rerunfilecheck Info: File `output.out' has not changed.
 Here is how much of TeX's memory you used:
  21375 strings out of 474370
  403110 string characters out of 5750350
- 1944754 words of memory out of 5000000
+ 1947754 words of memory out of 5000000
  43416 multiletter control sequences out of 15000+600000
  565986 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -764,7 +769,7 @@ cmsy10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C
 :/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Fi
 les/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb>
 Output written on C:\Users\bharg\Desktop\100x\roxilir\roxiler-backend\output.pd
-f (1 page, 126863 bytes).
+f (1 page, 127174 bytes).
 PDF statistics:
  77 PDF objects out of 1000 (max. 8388607)
  5 named destinations out of 1000 (max. 500000)

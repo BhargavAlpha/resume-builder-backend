@@ -19,43 +19,44 @@ function generateLatex(userData) {
   let projects = "";
   if (userData.projects.length > 0) {
     projects = `
-%-----------PROJECTS-----------
-\\section{PROJECTS}
-\\vspace{-5pt}
-\\resumeSubHeadingListStart
-  ${userData.projects
-    .map(
-      (project) => `
-      \\resumeProjectHeading
-      {\\textbf{\\large{\\underline{${project.name}}}} $|$ {\\underline{${
-        project.techStack
-      }}}}{${project.date}}
-      \\resumeItemListStart
-       ${project.description.map(
-         (point, index) => `
-            ${point ? `\\resumeItem{\\normalsize{${point}}}` : ""}
-         `
-       )}
-        ${
-          project.link
-            ? `\\resumeItem{\\href{${
-                project.link.startsWith("https://")
-                  ? project.link
-                  : "https://" + project.link
-              }}{\\textcolor{accent}{\\underline{\\normalsize{Live site here}}}}}`
-            : ""
-        }
-
-
-      \\resumeItemListEnd
-      \\vspace{-13pt}
-    `
-    )
-    .join("")}
-     \\vspace{13pt}
-\\resumeSubHeadingListEnd
-\\vspace{-12pt}
-`;
+    %-----------PROJECTS-----------
+    \\section{PROJECTS}
+    \\vspace{-5pt}
+    \\resumeSubHeadingListStart
+      ${userData.projects
+        .map(
+          (project) => `
+          \\resumeProjectHeading
+          {\\textbf{\\large{\\underline{${project.name}}}} $|$ {\\underline{${
+            project.techStack
+          }}}}{${project.date}}
+          \\resumeItemListStart
+            ${project.description
+              .filter((point) => point.trim() !== "")
+              .map(
+                (point, index) =>
+                  point ? `\\resumeItem{\\normalsize{${point}}}` : ""
+              )
+              .join("")}
+            ${
+              project.link
+                ? `\\resumeItem{\\href{${
+                    project.link.startsWith("https://")
+                      ? project.link
+                      : "https://" + project.link
+                  }}{\\textcolor{accent}{\\underline{\\normalsize{Live site here}}}}}`
+                : ""
+            }
+          \\resumeItemListEnd
+          \\vspace{-13pt}
+        `
+        )
+        .join("")}
+    \\vspace{13pt}
+    \\resumeSubHeadingListEnd
+    \\vspace{-12pt}
+    `;
+    
   }
 
   let internship = "";
@@ -66,26 +67,28 @@ function generateLatex(userData) {
       .map(
         (internship) => `
         \\resumeSubheading
-        {${internship.company}  ${
+        {${internship.company}${
           internship.certificateLink
-            ? `{$|$ \\href{${
+            ? ` \\href{${
                 internship.certificateLink.startsWith("https://")
                   ? internship.certificateLink
                   : "https://" + internship.certificateLink
-              }}{\\textcolor{accent}{\\underline{\\normalsize{Link}}}}}`
+              }}{\\textcolor{accent}{\\underline{\\normalsize{Link}}}}`
             : ""
         }}{${internship.startDate} -- ${internship.endDate}}
-        {\\underline{${internship.role}}}{${internship.location}}          
+        {\\underline{${internship.role}}}${internship.location ? ` {${internship.location}}` : '{}'}         
         \\resumeItemListStart
-          ${internship.description.map((point) =>
-            point ? `\\resumeItem{\\normalsize{${point}}}` : ""
-          )}
+          ${internship.description
+            .filter((point) => point.trim() !== "")
+            .map((point) => `\\resumeItem{\\normalsize{${point}}}`)
+            .join("")}
         \\resumeItemListEnd
       `
       )
       .join("")}
   \\resumeSubHeadingListEnd
   \\vspace{-12pt}`;
+
   }
 
   let technicalSkills = "";
