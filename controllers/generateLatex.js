@@ -61,7 +61,7 @@ function generateLatex(userData) {
 
   let internship = "";
   if (userData.internships.length > 0) {
-    internship = `\\section{INTERNSHIP}
+    internship = `\\section{EXPERIENCE}
   \\resumeSubHeadingListStart
     ${userData.internships
       .map(
@@ -403,12 +403,14 @@ ${
     
         %------RELEVANT COURSEWORK-------
         ${coursework}
+
+        %-----------EXPERIENCE-----------
+         ${internship}
     
         %-----------PROJECTS-----------
         ${projects}
     
-        %-----------EXPERIENCE-----------
-         ${internship}
+        
     
         %-----------PROGRAMMING SKILLS-----------
         ${technicalSkills}
