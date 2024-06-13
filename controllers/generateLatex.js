@@ -33,9 +33,8 @@ function generateLatex(userData) {
           \\resumeItemListStart
             ${project.description
               .filter((point) => point.trim() !== "")
-              .map(
-                (point, index) =>
-                  point ? `\\resumeItem{\\normalsize{${point}}}` : ""
+              .map((point, index) =>
+                point ? `\\resumeItem{\\normalsize{${point}}}` : ""
               )
               .join("")}
             ${
@@ -56,44 +55,47 @@ function generateLatex(userData) {
     \\resumeSubHeadingListEnd
     \\vspace{-12pt}
     `;
-    
   }
-
   let internship = "";
-  if (userData.internships.length > 0) {
-    internship = `\\section{EXPERIENCE}
+if (userData.internships.length > 0) {
+  internship = `\\section{EXPERIENCE}
   \\resumeSubHeadingListStart
-    ${userData.internships
-      .map(
-        (internship) => `
-        \\resumeSubheading
-        {${internship.company}${
-          internship.certificateLink
-            ? ` \\href{${
-                internship.certificateLink.startsWith("https://")
-                  ? internship.certificateLink
-                  : "https://" + internship.certificateLink
-              }}{\\textcolor{accent}{\\underline{\\normalsize{Link}}}}`
-            : ""
-        }}{${internship.startDate} -- ${internship.endDate}}
-        {\\underline{${internship.role}}}${internship.location ? ` {${internship.location}}` : '{}'}         
-        \\resumeItemListStart
-          ${internship.description
-            .filter((point) => point.trim() !== "")
-            .map((point) => `\\resumeItem{\\normalsize{${point}}}`)
-            .join("")}
-        \\resumeItemListEnd
-      `
-      )
-      .join("")}
+    ${userData.internships.map((internship) => `
+      \\resumeSubheading
+      {${internship.company}${
+        internship.certificateLink
+          ? ` \\href{${
+              internship.certificateLink.startsWith("https://")
+                ? internship.certificateLink
+                : "https://" + internship.certificateLink
+            }}{\\textcolor{accent}{\\underline{\\normalsize{Link}}}}`
+          : ""
+      }}{${internship.startDate} -- ${internship.endDate}}
+      {\\underline{${internship.role}}}${internship.location ? ` {${internship.location}}` : "{}"}         
+      ${
+        internship.description && internship.description.length > 0
+          ? `\\resumeItemListStart
+              ${internship.description
+                .filter((point) => point.trim() !== "")
+                .map((point) => `
+                  \\resumeItem{\\normalsize{${point}}}
+                `)
+                .join("\n")}
+            `+`\\resumeItemListEnd`
+          : ' {}'
+      }
+    `).join("\n")}
   \\resumeSubHeadingListEnd
   \\vspace{-12pt}`;
+}
 
-  }
+
+  
 
   let technicalSkills = "";
   if (userData.technicalSkills) {
-    if (languages.length > 0 || tools.length > 0 || technologies.length > 0) {
+    const { languages, tools, frameworks } = userData.technicalSkills;
+    if (languages?.length > 0 || tools?.length > 0 || frameworks?.length > 0) {
       technicalSkills = `\\section{TECHNICAL SKILLS}
         \\begin{itemize}[leftmargin=0.15in, label={}]
           \\small{\\item{ `;
@@ -107,8 +109,8 @@ function generateLatex(userData) {
           ", "
         )}}} \\\\`;
       }
-      if (technologies.length > 0) {
-        technicalSkills += `\\textbf{\\normalsize{Technologies/Frameworks:}}{\\normalsize{${technologies.join(
+      if (frameworks.length > 0) {
+        technicalSkills += `\\textbf{\\normalsize{Technologies/Frameworks:}}{\\normalsize{${frameworks.join(
           ", "
         )}}} \\\\`;
       }
@@ -156,13 +158,13 @@ function generateLatex(userData) {
             .map(
               (certification) => `
               $\\sbullet[.75] \\hspace{0.1cm}$ {{${
-                certification.name
+                certification.certificateName
               }}}\\hspace{0.04cm} ${
                 certification.link
                   ? `\\href{${
                       certification.link.startsWith("https://")
                         ? certification.link
-                        : "https://" + certification.link
+                        : "https://" + certification.certificateLink
                     }}{\\includegraphics[height=1em]{link_icon}}`
                   : ""
               }

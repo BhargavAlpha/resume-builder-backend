@@ -46,4 +46,27 @@ router.put('/edit-education/:resumeId/:educationId', async (req, res) => {
   }
 });
 
+
+router.delete('/delete-education/:resumeId/:educationId', async (req, res) => {
+  const { resumeId, educationId } = req.params;
+
+  try {
+    const resume = await ResumeModel.findById(resumeId);
+    if (!resume) {
+      return res.status(404).json({ message: 'Resume not found' });
+    }
+
+    const educationIndex = resume.education.findIndex(edu => edu.id === educationId);
+    if (educationIndex === -1) {
+      return res.status(404).json({ message: 'Education not found' });
+    }
+
+    resume.education.splice(educationIndex, 1);
+    await resume.save();
+    res.status(200).json({ message: 'Education deleted successfully', resume });
+  } catch (error) {
+    res.status(500).json({ message: 'Server error', error });
+  }
+});
+
 module.exports = router;

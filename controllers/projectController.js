@@ -46,4 +46,27 @@ router.put('/edit-project/:resumeId/:projectId', async (req, res) => {
   }
 });
 
+// Delete project
+router.delete('/delete-project/:resumeId/:projectId', async (req, res) => {
+  const { resumeId, projectId } = req.params;
+
+  try {
+    const resume = await ResumeModel.findById(resumeId);
+    if (!resume) {
+      return res.status(404).json({ message: 'Resume not found' });
+    }
+
+    const projectIndex = resume.projects.findIndex(proj => proj.id === projectId);
+    if (projectIndex === -1) {
+      return res.status(404).json({ message: 'Project not found' });
+    }
+
+    resume.projects.splice(projectIndex, 1);
+    await resume.save();
+    res.status(200).json({ message: 'Project deleted successfully', resume });
+  } catch (error) {
+    res.status(500).json({ message: 'Server error', error });
+  }
+});
+
 module.exports = router;

@@ -33,7 +33,16 @@ const resumeSchema = new mongoose.Schema({
     link: String,
     jobType: String,
     skills:String
-  }]
+  }],
+  certifications: [{
+    certificateName: String,
+    certificateLink: String,
+  }],
+  technicalSkills:{
+    languages: [String],
+    tools: [String],
+    frameworks: [String]
+  }
 });
 
 const ResumeModel = mongoose.model('Resume', resumeSchema);

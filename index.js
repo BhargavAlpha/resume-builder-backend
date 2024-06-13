@@ -6,9 +6,10 @@ require('dotenv').config();
 const { connectDB } = require('./config/connectDB');
 const { latex } = require('./controllers/latex');
 const { storeResumeData, getResumeData } = require('./controllers/UserData');
-const educationRoutes = require('./controllers/education');
-const projectRoutes = require('./controllers/projectRoutes');
-const experienceRoutes = require('./controllers/experienceRoutes');
+const educationRoutes = require('./controllers/educationController');
+const projectRoutes = require('./controllers/projectController');
+const experienceRoutes = require('./controllers/experienceController');
+const certificateRoutes = require('./controllers/certificateController');
 
 app.use(cors()); 
 app.use(express.json());
@@ -22,6 +23,7 @@ app.post('/resume/get-data', getResumeData);
 app.use('/resume/education', educationRoutes);
 app.use('/resume/project', projectRoutes);
 app.use('/resume/experience', experienceRoutes);
+app.use('/resume/certificate', certificateRoutes);
 
 app.get('/resume/hi', (req, res) => {
     res.send('Hi there!');
